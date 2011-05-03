@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Buzzdroid</string>
+    <string name="empty"></string>
+    <string name="title">Buzzdroidの設定</string>
+    <string name="title_username">ユーザー名</string>
+    <string name="title_mail">メールアドレス</string>
+    <string name="title_password">パスワード</string>
+    <string name="summary_username">ユーザー名を入力してください。</string>
+    <string name="summary_mail">メールアドレスを入力してください。</string>
+    <string name="summary_password">パスワードを入力してください。</string>
+    <string name="title_add_bookmark">Buzzurlにブックマーク</string>
+    <string name="label_url">URL</string>
+    <string name="label_title">タイトル</string>
+    <string name="label_notes">コメント</string>
+    <string name="label_tags">TAGS</string>
+    <string name="hint_url">URL</string>
+    <string name="hint_title">タイトル</string>
+    <string name="hint_notes">コメント</string>
+    <string name="button_save">保存</string>
+    <string name="button_cancel">キャンセル</string>
+    <string name="button_login">ログイン</string>
+    <string name="button_logout">ログアウト</string>
+    <string name="title_saving">Saving</string>
+    <string name="message_saving">Buzzurlに保存しています</string>
+    <string name="error_url_empty">URLは必須です</string>
+    <string name="error_title_empty">タイトルは必須です</string>
+    <string name="data_loading">データを取得しています</string>
+    <string name="title_login">ログイン</string>
+    <string name="hint_username">メールアドレス</string>
+    <string name="hint_password">パスワード</string>
+    <string name="access">全体に公開</string>
+	<string name="setting_back_title">戻る</string>
+</resources>
