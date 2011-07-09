@@ -59,8 +59,10 @@ public class Buzzdroid extends ListActivity {
 		
 		libYieldMaker mv = (libYieldMaker) findViewById(R.id.admakerview);
 		mv.setActivity(this);
-        mv.setUrl("http://images.ad-maker.info/apps/9rwj7873al29.html");
-        mv.startView();
+
+                // TODO: set URL
+                mv.setUrl("");
+                mv.startView();
 
 		mArticles = new ArrayList<Article>(1);
 		mAdapter = new ArrayAdapter<String>(this, R.layout.simple_list_item);
