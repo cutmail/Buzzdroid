@@ -1,12 +1,15 @@
 package org.tlab.buzzdroid;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
-import jp.co.nobot.libYieldMaker.libYieldMaker;
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 
+import jp.co.nobot.libYieldMaker.libYieldMaker;
 import me.cutmail.buzzurl.Article;
 import me.cutmail.buzzurl.ArticleGen;
 import net.vvakame.util.jsonpullparser.JsonFormatException;
@@ -15,7 +18,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -35,6 +37,10 @@ import android.widget.Toast;
 
 public class Buzzdroid extends ListActivity {
 	private static final String TAG = "Buzzdroid";
+	
+	GoogleAnalyticsTracker tracker;
+	
+	final static String ANALYTICS_ID = "UA-3314949-15";
 
 	private static String RECENT_ARTICLE_URL = "http://api.buzzurl.jp/api/articles/v1/json/{userId}";
 	private static String RECENT_SEARCH_URL = "http://api.buzzurl.jp/api/articles/v1/json/{userId}/keyword/{keyword}";
@@ -60,9 +66,11 @@ public class Buzzdroid extends ListActivity {
 		libYieldMaker mv = (libYieldMaker) findViewById(R.id.admakerview);
 		mv.setActivity(this);
 
-                // TODO: set URL
-                mv.setUrl("");
-                mv.startView();
+        mv.setUrl("http://images.ad-maker.info/apps/9rwj7873al29.html");
+        mv.startView();
+        
+        tracker = GoogleAnalyticsTracker.getInstance();
+        tracker.start(ANALYTICS_ID, 60, this);
 
 		mArticles = new ArrayList<Article>(1);
 		mAdapter = new ArrayAdapter<String>(this, R.layout.simple_list_item);
@@ -79,13 +87,19 @@ public class Buzzdroid extends ListActivity {
 			
 		});
 		
+//		getArticles();
+	}
+	
+	@Override
+	protected void onStart() {
+		super.onStart();
+		tracker.trackPageView("/bookmark_list");
 		getArticles();
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-//		getArticles();
 	}
 	
 	/* create menu */
@@ -238,8 +252,7 @@ public class Buzzdroid extends ListActivity {
 			mAdapter.clear();
 			
 			mDialog = new ProgressDialog(mActivity);
-			mDialog.setTitle("ブックマークを取得中...");
-			mDialog.setMessage("ブックマークを取得しています");
+			mDialog.setMessage("ブックマークを取得しています...");
 			mDialog.setIndeterminate(true);
 			mDialog.show();
 		}
@@ -312,8 +325,7 @@ public class Buzzdroid extends ListActivity {
 			mAdapter.clear();
 			
 			mDialog = new ProgressDialog(mActivity);
-			mDialog.setTitle("ブックマークを取得中...");
-			mDialog.setMessage("ブックマークを取得しています");
+			mDialog.setMessage("ブックマークを取得しています...");
 			mDialog.setIndeterminate(true);
 			mDialog.show();
 		}
@@ -327,10 +339,16 @@ public class Buzzdroid extends ListActivity {
 			if (!username.equals("")) {
 				sUrl = sUrl.replace("{userId}", username);
 			}
-			
+		
 			if (!keyword.equals("")) {
-				sUrl = sUrl.replace("{keyword}", keyword);
+				try {
+					sUrl = sUrl.replace("{keyword}", URLEncoder.encode(keyword, "UTF-8"));
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+					return null;
+				}
 			}
+	
 			// TODO: check userID
 			
 			try {

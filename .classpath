@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
-	<classpathentry kind="lib" path="/Users/invent/eclipse/workspace/Buzzdroid/libs/jsonpullparser-core-0.4.jar"/>
-	<classpathentry kind="lib" path="/Users/invent/eclipse/workspace/Buzzdroid/libs/libYieldMaker.jar"/>
+	<classpathentry kind="lib" path="/Users/cutmail/AndroidWorks/Buzzdroid/libs/jsonpullparser-core-0.4.jar"/>
+	<classpathentry kind="lib" path="/Users/cutmail/AndroidWorks/Buzzdroid/libs/libYieldMaker.jar"/>
+	<classpathentry kind="src" path="gen">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/cutmail/AndroidWorks/Buzzdroid/libs/libGoogleAnalytics.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

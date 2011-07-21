@@ -9,18 +9,21 @@
   	android:layout_width="fill_parent"
   	android:layout_height="wrap_content"
   	android:text="Author cutmail"
+  	android:textColor="#ffffff"
   	android:gravity="center" />
   <TextView
   	android:id="@+id/about_version"
   	android:layout_width="fill_parent"
   	android:layout_height="wrap_content"
-  	android:text="Version 1.1.1"
+  	android:text="Version 1.1.2"
+  	android:textColor="#ffffff"
   	android:gravity="center" />
   <TextView
   	android:id="@+id/about_url"
   	android:layout_width="fill_parent"
   	android:layout_height="wrap_content"
   	android:text="http://cutmail.me/buzzdroid/"
+  	android:textColor="#ffffff"
   	android:gravity="center"
   	android:autoLink="web" />
 </LinearLayout>

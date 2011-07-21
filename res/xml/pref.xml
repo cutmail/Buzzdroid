@@ -2,7 +2,7 @@
 <PreferenceScreen
   xmlns:android="http://schemas.android.com/apk/res/android">
   <PreferenceCategory
-  	android:title="@string/title">
+  	android:title="Buzzurlアカウントの設定">
   	<EditTextPreference
   		android:key="username"
   		android:title="@string/title_username"
@@ -22,5 +22,9 @@
   		android:dialogTitle="@string/title_password"
   		android:password="true">
   	</EditTextPreference>
+  	<Preference
+  		android:key="back"
+  		android:title="戻る">
+  	</Preference>
   </PreferenceCategory>
 </PreferenceScreen>
