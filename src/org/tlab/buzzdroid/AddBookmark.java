@@ -65,9 +65,6 @@ public class AddBookmark extends Activity implements OnClickListener {
 				mEditUrl.setText(url);
 				String title = intent.getStringExtra(Intent.EXTRA_SUBJECT);
 				mEditTitle.setText(title);
-				
-//				TitleFetchTask task = new TitleFetchTask(this, mEditTitle);
-//				task.execute(url);
 			} else {
 				mEditUrl.setText("http://");
 				mEditTitle.setText("");
@@ -89,7 +86,7 @@ public class AddBookmark extends Activity implements OnClickListener {
 		
 		if (isEmpty(mEditUrl) || mEditUrl.getText().toString().equals("http://")) {
 			mEditUrl.requestFocus();
-			mEditUrl.setError("URLを入力してください。");
+			mEditUrl.setError(getString(R.string.error_url_empty));
 			error = true;
 		} else {
 			mEditUrl.setError(null);
@@ -98,7 +95,7 @@ public class AddBookmark extends Activity implements OnClickListener {
 		
 		if (isEmpty(mEditTitle)) {
 			mEditTitle.requestFocus();
-			mEditTitle.setError("タイトルを入力してください。");
+			mEditTitle.setError(getString(R.string.error_title_empty));
 			error = true;
 		} else {
 			mEditTitle.setError(null);
@@ -111,7 +108,7 @@ public class AddBookmark extends Activity implements OnClickListener {
 		
 		// TODO: check Login
 		if (!checkLogin()) {
-			Toast.makeText(this, "ログインしてください。", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, getString(R.string.alert_login), Toast.LENGTH_SHORT).show();
 			showSettings();
 			return;
 		}

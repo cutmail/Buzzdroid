@@ -9,48 +9,47 @@ import android.os.AsyncTask;
 import android.widget.Toast;
 
 public class AddBookmarkTask extends AsyncTask<Article, String, Boolean>{
-	
-	private AddBookmark mActivity;
-	private UsernamePasswordCredentials mCredentials;
-	private ProgressDialog mDialog;
-	
-	public AddBookmarkTask(AddBookmark activity, UsernamePasswordCredentials credentials) {
-		mActivity = activity;
-		mCredentials = credentials;
-	}
-	
-	@Override
-	protected void onPreExecute() {
-		super.onPreExecute();
-		mDialog = new ProgressDialog(mActivity);
-//		mDialog.setTitle("保存中...");
-		mDialog.setMessage("ブックマークしています...");
-		mDialog.setIndeterminate(true);
-		mDialog.show();
-	}
 
-	@Override
-	protected Boolean doInBackground(Article... articles) {
-		Boolean result = false;
-		BuzzurlApi api = new BuzzurlApi(mCredentials);
-		Article article = articles[0];
-		
-		result = api.createPosts(article);
-		return result;
-	}
+  private AddBookmark mActivity;
+  private UsernamePasswordCredentials mCredentials;
+  private ProgressDialog mDialog;
 
-	@Override
-	protected void onPostExecute(Boolean result) {
-		if (mDialog != null) {
-			mDialog.dismiss();
-			mDialog = null;
-		}
-		
-		if (result == true) {
-			Toast.makeText(mActivity, "ブックマークに成功しました。", Toast.LENGTH_SHORT).show();
-		} else {
-			Toast.makeText(mActivity, "ブックマークに失敗しました。", Toast.LENGTH_SHORT).show();
-		}
-		mActivity.finish();
-	}
+  public AddBookmarkTask(AddBookmark activity, UsernamePasswordCredentials credentials) {
+    mActivity = activity;
+    mCredentials = credentials;
+  }
+
+  @Override
+    protected void onPreExecute() {
+      super.onPreExecute();
+      mDialog = new ProgressDialog(mActivity);
+      mDialog.setMessage(getString(R.string.message_saving));
+      mDialog.setIndeterminate(true);
+      mDialog.show();
+    }
+
+  @Override
+    protected Boolean doInBackground(Article... articles) {
+      Boolean result = false;
+      BuzzurlApi api = new BuzzurlApi(mCredentials);
+      Article article = articles[0];
+
+      result = api.createPosts(article);
+      return result;
+    }
+
+  @Override
+    protected void onPostExecute(Boolean result) {
+      if (mDialog != null) {
+        mDialog.dismiss();
+        mDialog = null;
+      }
+
+      if (result == true) {
+        Toast.makeText(mActivity, getString(R.string.message_bookmark_successed), Toast.LENGTH_SHORT).show();
+      } else {
+        Toast.makeText(mActivity, getString(R.string.message_bookmark_failed), Toast.LENGTH_SHORT).show();
+      }
+      mActivity.finish();
+    }
 }
