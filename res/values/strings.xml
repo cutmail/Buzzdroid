@@ -3,7 +3,7 @@
     <string name="app_name">Buzzdroid</string>
     <string name="empty"></string>
     <string name="menu_reload">更新</string>
-    <string name="menu_add">ブックマーク追加</li>
+    <string name="menu_add">ブックマーク追加</string>
     <string name="menu_search">キーワード検索</string>
     <string name="menu_settings">設定</string>
     <string name="menu_about">情報</string>

@@ -4,7 +4,6 @@ import android.os.AsyncTask;
 import android.widget.EditText;
 
 public class TitleFetchTask extends AsyncTask<String, String, String>{
-	
 	private AddBookmark mActivity;
 	private EditText mEditTitle;
 	

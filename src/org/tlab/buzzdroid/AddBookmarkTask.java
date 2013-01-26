@@ -23,7 +23,7 @@ public class AddBookmarkTask extends AsyncTask<Article, String, Boolean>{
     protected void onPreExecute() {
       super.onPreExecute();
       mDialog = new ProgressDialog(mActivity);
-      mDialog.setMessage(getString(R.string.message_saving));
+      mDialog.setMessage(mActivity.getString(R.string.message_saving));
       mDialog.setIndeterminate(true);
       mDialog.show();
     }
@@ -46,9 +46,9 @@ public class AddBookmarkTask extends AsyncTask<Article, String, Boolean>{
       }
 
       if (result == true) {
-        Toast.makeText(mActivity, getString(R.string.message_bookmark_successed), Toast.LENGTH_SHORT).show();
+        Toast.makeText(mActivity, mActivity.getString(R.string.message_bookmark_successed), Toast.LENGTH_SHORT).show();
       } else {
-        Toast.makeText(mActivity, getString(R.string.message_bookmark_failed), Toast.LENGTH_SHORT).show();
+        Toast.makeText(mActivity, mActivity.getString(R.string.message_bookmark_failed), Toast.LENGTH_SHORT).show();
       }
       mActivity.finish();
     }

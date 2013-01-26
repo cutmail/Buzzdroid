@@ -36,7 +36,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class Buzzdroid extends ListActivity {
-  private static final String TAG = "Buzzdroid";
+  private static final String TAG = Buzzdroid.class.getSimpleName();
 
   GoogleAnalyticsTracker tracker;
 
@@ -144,7 +144,7 @@ public class Buzzdroid extends ListActivity {
 
   private void getArticles() {
     if (!checkLogin()) {
-      Toast.makeText(this, getString(R.string.string.alert_login), Toast.LENGTH_SHORT).show();
+      Toast.makeText(this, getString(R.string.alert_login), Toast.LENGTH_SHORT).show();
       showSettings();
       return;
     }
@@ -205,7 +205,7 @@ public class Buzzdroid extends ListActivity {
     final View entryView = factory.inflate(R.layout.dialog_keyword_search, null);
 
     return new AlertDialog.Builder(this)
-      .setTitle(getString(R.string.menu_search)
+      .setTitle(getString(R.string.menu_search))
       .setView(entryView)
       .setPositiveButton(getString(R.string.button_search), new DialogInterface.OnClickListener() {
         public void onClick(DialogInterface dialog, int whichButton) {
@@ -214,7 +214,7 @@ public class Buzzdroid extends ListActivity {
           if (!keyword.equals("")) {
             searchArticles(keyword);
           } else {
-            Toast.makeText(this, getString(message_enter_keyword), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.message_enter_keyword), Toast.LENGTH_SHORT).show();
             setNameDialog().show();
           }
         }

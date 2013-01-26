@@ -2,7 +2,6 @@ package org.tlab.buzzdroid;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 import me.cutmail.buzzurl.Article;
 
@@ -17,9 +16,11 @@ import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 
 import android.net.Uri;
+import android.util.Log;
 
 public class BuzzurlApi {
-  private static final String TAG = "BuzzurlApi";
+  private static final String TAG = BuzzurlApi.class.getSimpleName();
+  
   private static final String SCHEME = "https";
   private static final String AUTHORITY = "buzzurl.jp";
   private static final int PORT = 80;
@@ -73,6 +74,5 @@ public class BuzzurlApi {
       e.printStackTrace();
       return false;
     }
-    return false;
   }
 }

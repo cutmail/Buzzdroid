@@ -6,7 +6,7 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 
 public class Settings extends PreferenceActivity {
-  private final static String TAG = "Settings";
+  private final static String TAG = Settings.class.getSimpleName();
 
   @Override
     public void onCreate(Bundle savedInstanceState) {

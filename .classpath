@@ -10,5 +10,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="/Users/cutmail/AndroidWorks/Buzzdroid/libs/libGoogleAnalytics.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
