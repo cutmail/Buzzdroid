@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-class HttpUtil {
+public class HttpUtil {
 
     public static String getTitle(String url) {
 
